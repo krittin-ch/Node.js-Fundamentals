@@ -1,13 +1,28 @@
-const {readFileSync, writeFileSync} = require('fs')
+const {readFile, writeFile} = require('fs')
 
-// read files
-const first = readFileSync('Introduction/content/subfolder/first.txt', 'utf-8') // utf-8 converts Buffer to human-readable string
-const second = readFileSync('Introduction/content/subfolder/second.txt', 'utf-8')
-console.log(first, second)
-
-// write file
-writeFileSync(
-    'Introduction/content/subfolder/result-sync.txt', 
-    `Here is the result : ${first}, ${second}`,
-    {flag :'a'} // node will append the text file
-    )
+readFile('Introduction/content/first.txt', 'utf-8', (err,result) => {
+    if (err) {
+        console.log(err)
+        return
+    }
+    const first = result
+    readFile('Introduction/content/second.txt', 'utf-8', (err, result) => {
+        if (err) {
+            console.log(err)
+            return
+        }
+        const second = result
+        writeFile('Introduction/content/result-sync.txt',
+        `Here is the result: ${first}, ${second}`,
+        (err, result, a, b) => {
+            if (err) {
+                console.log(err)
+                return
+            }
+            console.log(result)
+            console.log(a)
+            console.log(b)
+        }
+        )
+    })
+})
