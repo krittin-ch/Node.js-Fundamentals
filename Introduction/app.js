@@ -1,19 +1,22 @@
-const http = require('http')
+// npm - global command, come with node.js
+// npm --version
 
-const server = http.createServer((req, res) => { // req is for the incoming request from a web browser, and res is for the response, what we are sending back  
-    if (req.url === '/') {
-        res.end('Welcome to our home page')
-    }
-    if (req.url === '/about') {
-        res.end('Here is my short story')
-    }
-    res.end(`
-    <h1>Oops!</h1>
-    <p>We can't seem to find the oage you are looking for</p>
-    <a href="/">Back Home</a>
-    `)
-})
+// local dependency - use it only in this particular project
+// npm i <packageName>
 
-// the server is listening to port 5000
-// localhost:5000
-server.listen(5000)
+// global dependency = use it in any project
+// npm install -g <pavkageName>
+// npm install -g <pavkageName> (mac)
+
+// package.json - manifest file (tores important info about project/package)
+// manual appraoch (create package.json in the root, create propertiees etc.)
+// npm init (step by step, press enter to skip)
+// npm init -y (everything default)
+
+// folder node_modules is where all the deoendencies are stored
+
+const _ = require('lodash') // const _ means access everythinf in that require command
+
+const items = [1, [2, [3, [4]]]]
+const newItems = _.flattenDeep(items)
+console.log(newItems)
