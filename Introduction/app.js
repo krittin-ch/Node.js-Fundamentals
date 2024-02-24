@@ -15,6 +15,19 @@
 
 // folder node_modules is where all the deoendencies are stored
 
+// modify package.json from
+
+// "scripts": {
+//     "test": "echo \"Error no test specified\" && exit 1"
+// }
+
+// to
+// "scripts": {
+//     "start": "node Introduction/app.js"
+// }
+
+// and run with npm start
+
 const _ = require('lodash') // const _ means access everythinf in that require command
 
 const items = [1, [2, [3, [4]]]]
