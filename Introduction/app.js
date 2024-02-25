@@ -1,35 +1,10 @@
-// npm - global command, come with node.js
-// npm --version
+const http = require('http')
 
-// local dependency - use it only in this particular project
-// npm i <packageName>
+const server = http.createServer((req,res) => { 
+    console.log('request event') // run when create server (click at reload button)
+    res.end('Hello World')
+})
 
-// global dependency = use it in any project (the global dependcy will not appear in the package.json but will be usable)
-// npm install -g <pavkageName>
-// npm install -g <pavkageName> (mac)
-
-// package.json - manifest file (tores important info about project/package)
-// manual appraoch (create package.json in the root, create propertiees etc.)
-// npm init (step by step, press enter to skip)
-// npm init -y (everything default)
-
-// folder node_modules is where all the deoendencies are stored
-
-// modify package.json from
-
-// "scripts": {
-//     "test": "echo \"Error no test specified\" && exit 1"
-// }
-
-// to
-// "scripts": {
-//     "start": "node Introduction/app.js"
-// }
-
-// and run with npm start (or npm run start or npm run dev, depending on the scripts setup in package.json)
-
-const _ = require('lodash') // const _ means access everythinf in that require command
-
-const items = [1, [2, [3, [4]]]]
-const newItems = _.flattenDeep(items)
-console.log(newItems)
+server.listen(3000, () => {
+    console.log('Server listening on port : 3000.....')
+})
