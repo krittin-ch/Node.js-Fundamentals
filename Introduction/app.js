@@ -4,7 +4,7 @@
 // local dependency - use it only in this particular project
 // npm i <packageName>
 
-// global dependency = use it in any project
+// global dependency = use it in any project (the global dependcy will not appear in the package.json but will be usable)
 // npm install -g <pavkageName>
 // npm install -g <pavkageName> (mac)
 
@@ -26,7 +26,7 @@
 //     "start": "node Introduction/app.js"
 // }
 
-// and run with npm start
+// and run with npm start (or npm run start or npm run dev, depending on the scripts setup in package.json)
 
 const _ = require('lodash') // const _ means access everythinf in that require command
 
