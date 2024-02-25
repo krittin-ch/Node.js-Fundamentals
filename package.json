@@ -4,7 +4,8 @@
   "description": "https://youtu.be/Oe421EPjeBE?si=SEenh7zFTggXscMh",
   "main": "index.js",
   "scripts": {
-    "start": "node Introduction/app.js"
+    "start": "node Introduction/app.js",
+    "dev": "nodemon Introduction/app.js"
   },
   "keywords": [],
   "author": "",
@@ -12,8 +13,5 @@
   "dependencies": {
     "bootstrap": "^5.3.3",
     "lodash": "^4.17.21"
-  },
-  "devDependencies": {
-    "nodemon": "^3.1.0"
   }
 }
