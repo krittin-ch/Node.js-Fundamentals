@@ -13,10 +13,18 @@ const getText = (path) => {
     })
 }
 
-getText('./Introduction/content/fidrst.txt')
+getText('./Introduction/content/first.txt')
 .then(result => console.log(result))
 .catch((err) => console.log(err))
 
-const start = async() => {
-    const first = await getText('./content/first.txt')
+const start = async () => {
+    try {
+        const first = await getText('./Introduction/content/first.txt')
+        const second = await getText('./Introduction/content/second.txt')
+        console.log(first, second)
+    } catch (error) {
+        console.log(error)
+    }
 }
+
+start()
