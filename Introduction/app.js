@@ -1,30 +1,22 @@
-const {readFile} = require('fs')
-const { result } = require('lodash')
+const http = require('http');
+const customEmitter = require('./13-event-emitter');
 
-const getText = (path) => {
-    return new Promise((resolve, reject) => {
-        readFile(path,'utf-8', (err, data) => {
-            if (err) {
-                reject(err)
-            } else {
-                resolve(data)
-            }
-        })
-    })
-}
+// Using Event Emitter API
+const server = http.createServer()
+// emits request event
+// subscribe to it / listen for it / respond to it
+// https://nodejs.org/docs/latest/api/http.html for the event name
+server.on('request', (req, res) => { // When the request comes, 
+    res.end('Welcome');
+});
 
-getText('./Introduction/content/first.txt')
-.then(result => console.log(result))
-.catch((err) => console.log(err))
+server.emit('request', (req, res) => {
+    console.log('asds')
+})
 
-const start = async () => {
-    try {
-        const first = await getText('./Introduction/content/first.txt')
-        const second = await getText('./Introduction/content/second.txt')
-        console.log(first, second)
-    } catch (error) {
-        console.log(error)
-    }
-}
+// Listen to 'response' event from 13-event-emitter.js
+customEmitter.on('response', (name, id) => {
+    console.log(`data recieved user ${name} with id :${id}`);
+});
 
-start()
+server.listen(3000);
