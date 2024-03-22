@@ -1,7 +1,6 @@
 // Streams is applied to deal with the continuous data or large data
 
 const { createReadStream } = require('fs');
-const { keyBy, size } = require('lodash');
 
 const stream = createReadStream('./Introduction/content/big.txt', { 
     highWaterMark: 90000, // set to 90000 bytes per chuck
