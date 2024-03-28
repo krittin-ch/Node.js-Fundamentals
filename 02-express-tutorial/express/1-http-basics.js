@@ -1,6 +1,6 @@
 // HTTP Methods
-// GET - get all orders
-// POST - place an order (send data)
+// GET - get all orders (transfering data, and show data information in url)
+// POST - place an order (send data) (transfering data, but don't show data information in url)
 // GET - get single order (path params)
 // PUT - update specific order (params + send data)
 // DELETE - delete order (path params)
